@@ -1,0 +1,74 @@
+<h1>
+  UT - New Angular Test
+</h1>
+
+<div class="container">
+
+  <form [formGroup]="utForm" id="form-ut">
+    <div class="row form-group mt-3">
+
+      <div class="col-md-3 text-right">
+        <label for="txt-name">Name</label>
+      </div>
+
+      <div class="col-md-9" [ngClass]="{'has-error':!utForm.controls['name'].valid && utForm.controls['name'].touched}">
+          <input type="text" id="txt-name" class="form-control" [formControl]="utForm.controls['name']">
+        <small *ngIf="!utForm.controls['name'].valid && utForm.controls['name'].touched"
+          class="text-danger">
+          Name is required
+        </small>
+      </div>
+    </div>
+
+
+    <div class="row form-group mt-3">
+
+      <div class="col-md-3 text-right">
+        <label for="txt-description">Description</label>
+      </div>
+
+      <div class="col-md-9" [ngClass]="{'has-error':!utForm.controls['description'].valid && utForm.controls['description'].touched}">
+          <textarea type="text" id="txt-description" class="form-control" cols="3" [formControl]="utForm.controls['description']"></textarea>
+        <small *ngIf="!utForm.controls['description'].valid && utForm.controls['description'].touched"
+          class="text-danger">
+          Description is required
+        </small>
+      </div>
+    </div>
+
+
+
+
+
+  </form>
+
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <table class="table table-responsive">
+        <title>Top 10 most using words</title>
+        <thead>
+          <tr>
+            <th>Word</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let word of top10Words">
+            <td>
+              {{word.word}}
+            </td>
+            <td>
+              {{word.count}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+
+</div>
